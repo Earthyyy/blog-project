@@ -4,12 +4,11 @@ const swagger = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 
 
-// TODO: add implemented apis to the list
 const options = {
     swaggerDefinition: {
         openapi: "3.0.0",
         info: {
-            title: "Caption contest backend",
+            title: "Blog website",
             description: "Blog website project",
             version: "1.0.0",
             license: {
@@ -18,12 +17,12 @@ const options = {
             }
         },
     },
-    apis: []
+    apis: ["./routes/articles.js", "./routes/categories.js", "./routes/comments.js", "./routes/users.js"]
 };
 const specs = swagger(options);
 
 
-router.use("/",swaggerUI.serve);
+router.use("/", swaggerUI.serve);
 router.get(
     "/",
     swaggerUI.setup(specs, {

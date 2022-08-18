@@ -1,1 +1,31 @@
 // TODO: Implement HTTP Requests
+
+GET http://localhost:3000/api/v1/categories
+
+###
+
+GET http://localhost:3000/api/v1/categories/1
+
+###
+
+POST http://localhost:3000/api/v1/categories
+Content-Type: application/json
+
+{
+    "name": "cooking"
+}
+
+
+###
+
+PUT http://localhost:3000/api/v1/categories/1
+Content-Type: application/json
+
+{
+    "name": "cooking [Updated]"
+}
+
+
+###
+
+DELETE http://localhost:3000/api/v1/categories/1

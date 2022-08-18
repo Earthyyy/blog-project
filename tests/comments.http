@@ -1,1 +1,34 @@
 // TODO: Implement HTTP Requests
+
+
+GET http://localhost:3000/api/v1/comments
+
+###
+
+GET http://localhost:3000/api/v1/comments/1
+
+###
+
+POST http://localhost:3000/api/v1/comments
+Content-Type: application/json
+
+{
+    "content": "This is insane broo!",
+    "userId": 5,
+    "articleId": 1
+}
+
+
+###
+
+PUT http://localhost:3000/api/v1/comments/1
+Content-Type: application/json
+
+{
+    "content" : "This is coool actually xD"
+}
+
+
+###
+
+DELETE http://localhost:3000/api/v1/comments/1
