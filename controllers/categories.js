@@ -6,8 +6,12 @@ const {
 
 
 async function findAllCategories(req, res) {
+    const {take,skip} = req.query;
     try {
-        const categories = await prisma.category.findMany();
+        const categories = await prisma.category.findMany({
+            take: !isNaN(take) ? parseInt(take) : undefined,
+            skip: !isNaN(skip) ? parseInt(skip) : undefined
+        });
         return res.status(200).json({
             status: 'Success',
             payload: categories

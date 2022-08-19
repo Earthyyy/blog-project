@@ -7,8 +7,12 @@ const {
 
 
 async function findAllComments(req, res) {
+    const {take,skip} = req.query;
     try {
-        const comments = await prisma.comment.findMany();
+        const comments = await prisma.comment.findMany({
+            take: !isNaN(take) ? parseInt(take) : undefined,
+            skip: !isNaN(skip) ? parseInt(skip) : undefined
+        });
         return res.status(200).json({
             status: 'Success',
             payload: comments

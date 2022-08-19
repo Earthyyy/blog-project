@@ -1,7 +1,9 @@
-// TODO: Implement HTTP Requests
-
-
 GET http://localhost:3000/api/v1/articles
+
+###
+
+GET http://localhost:3000/api/v1/articles?skip=10&take=25
+
 
 ###
 

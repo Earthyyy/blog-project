@@ -5,6 +5,10 @@ GET http://localhost:3000/api/v1/comments
 
 ###
 
+GET http://localhost:3000/api/v1/comments?take=20&skip=10
+
+###
+
 GET http://localhost:3000/api/v1/comments/1
 
 ###

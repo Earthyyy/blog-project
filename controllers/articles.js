@@ -8,8 +8,12 @@ const {
 
 
 async function findAllArticles(req, res) {
+    const {take,skip} = req.query;
     try {
-        const articles = await prisma.article.findMany();
+        const articles = await prisma.article.findMany({
+            take: !isNaN(take) ? parseInt(take) : undefined,
+            skip: !isNaN(skip) ? parseInt(skip) : undefined
+        });
         return res.status(200).json({
             status: 'Success',
             payload: articles
@@ -31,7 +35,6 @@ async function findArticleById(req, res) {
 }
 
 
-// TODO: Verify that the userId exists
 async function addNewArticle(req, res) {
     const {
         title,

@@ -41,7 +41,7 @@ router.param('id', async (req, res, next, id) => {
     }
 })
 
-// TODO: Implement CRUD operations
+
 router.get('/', findAllComments);
 router.get('/:id', findCommentById);
 router.post('/', addNewComment);

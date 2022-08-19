@@ -4,8 +4,12 @@ const validator = require('validator');
 
 
 async function findAllUsers(req, res) {
+    const {take,skip} = req.query;
     try {
-        const users = await prisma.user.findMany();
+        const users = await prisma.user.findMany({
+            take: !isNaN(take) ? parseInt(take) : undefined,
+            skip: !isNaN(skip) ? parseInt(skip) : undefined
+        });
         return res.status(200).json({
             status: 'Success',
             payload: users
