@@ -5,7 +5,7 @@ GET http://localhost:3000/api/v1/articles
 
 ###
 
-GET http://localhost:3000/api/v1/articles/1
+GET http://localhost:3000/api/v1/articles/10
 
 ###
 
@@ -17,21 +17,21 @@ Content-Type: application/json
     "content": "My first Blog ever! I'm so excited Sheesh!",
     "image" : "cats.png",
     "isPublished": true,
-    "userId": 5,
-    "categoryId": 1
+    "userId": 6,
+    "categoryArray": [2,3]
 }
 
 
 ###
 
-PUT http://localhost:3000/api/v1/articles/1
+PUT http://localhost:3000/api/v1/articles/3
 Content-Type: application/json
 
 {
-    "title" : "Update to my first blog"
+    "categoryArray" : [4]
 }
 
 
 ###
 
-DELETE http://localhost:3000/api/v1/articles/1
+DELETE http://localhost:3000/api/v1/articles/35

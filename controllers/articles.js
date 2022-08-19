@@ -39,10 +39,10 @@ async function addNewArticle(req, res) {
         image,
         isPublished,
         userId,
-        categoryId
+        categoryArray
     } = req.body;
     if (isString(title, content, image) &&
-        isInt(userId) && isInt(categoryId) &&
+        isInt(userId) &&
         isBool(isPublished)) {
 
         try {
@@ -58,9 +58,11 @@ async function addNewArticle(req, res) {
                         }
                     },
                     categories: {
-                        connect: {
-                            id: categoryId
-                        }
+                        connect: categoryArray.map(item => {
+                            return {
+                                id: item
+                            }
+                        })
                     }
                 }
             });
@@ -89,7 +91,8 @@ async function updateArticle(req, res) {
     const {
         title,
         content,
-        image
+        image,
+        categoryArray
     } = req.body;
 
 
@@ -101,7 +104,15 @@ async function updateArticle(req, res) {
             data: {
                 title,
                 content,
-                image
+                image,
+                categories: {
+                    set: [],
+                    connect: categoryArray.map(item => {
+                        return {
+                            id: item
+                        }
+                    })
+                }
             }
         });
 
